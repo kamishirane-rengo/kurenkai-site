@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* 区連会 定例会資料ページ
+   方針: 白地＋モノトーン＋差し色1色（濃紺）。全周ボーダー、影は最小限。
+         グラデーション・カード上端のカラーバー・錠剤型ボタンは使わない。 */
+
+:root {
+  --ink: #1b1f24;
+  --sub: #5c6670;
+  --line: #e2e5e9;
+  --line-strong: #c8cdd4;
+  --paper: #ffffff;
+  --panel: #f5f6f8;
+  --accent: #1f4e79;
+  --accent-weak: #e8eef5;
+  --mark: #fff3b0;
+  --maxw: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- ヘッダー ---------- */
+.site-header {
+  border-bottom: 2px solid var(--ink);
+  padding: 40px 0 24px;
+  margin-bottom: 40px;
+}
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--sub);
+  letter-spacing: .04em;
+}
+.site-header h1 {
+  margin: 0 0 14px;
+  font-size: 30px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+.header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 14px;
+  color: var(--sub);
+  margin: 0;
+}
+.header-meta a { color: var(--accent); }
+
+/* ---------- 共通 ---------- */
+h2.section-title {
+  font-size: 20px;
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible,
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- 目次 ---------- */
+.toc { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px 28px; margin-bottom: 48px; }
+.toc h2 { font-size: 17px; margin: 0 0 16px; }
+.toc-grid { display: grid; gap: 20px 32px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.toc-chapter > p { margin: 0 0 6px; font-weight: 700; font-size: 15px; }
+.toc-chapter ol { margin: 0; padding-left: 1.6em; }
+.toc-chapter li { font-size: 14px; margin: 3px 0; }
+.toc-chapter a { color: var(--ink); text-decoration: none; }
+.toc-chapter a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ---------- 要約 ---------- */
+.summary-list { display: grid; gap: 16px; margin-bottom: 56px; }
+.summary-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 24px;
+  background: var(--paper);
+}
+.summary-item h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.6; font-weight: 700; }
+.summary-item h3 .no {
+  display: inline-block;
+  min-width: 3.2em;
+  margin-right: .6em;
+  padding: 1px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--panel);
+  font-size: 13px;
+  color: var(--sub);
+  text-align: center;
+  vertical-align: 2px;
+}
+.summary-item p { margin: 0; font-size: 15px; color: #2c333a; }
+.summary-item .jump { font-size: 13px; margin-top: 10px; }
+.summary-item.is-unreadable p { color: var(--sub); }
+
+/* ---------- 章と資料 ---------- */
+.chapter { margin-bottom: 56px; }
+.chapter-head { display: flex; align-items: baseline; gap: 14px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 28px; }
+.chapter-head .num {
+  flex: none;
+  width: 34px; height: 34px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: var(--accent); color: #fff;
+  font-size: 17px; font-weight: 700;
+  align-self: center;
+}
+.chapter-head h2 { margin: 0; font-size: 21px; line-height: 1.4; }
+
+.doc { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+.doc-head { padding: 16px 22px; border-bottom: 1px solid var(--line); background: var(--panel); }
+.doc-head h3 { margin: 0; font-size: 16px; line-height: 1.6; font-weight: 700; }
+.doc-head .no { color: var(--accent); margin-right: .5em; }
+.doc-actions { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; }
+.doc-body { background: #3a3f44; }
+.doc-body iframe { display: block; width: 100%; height: 680px; border: 0; }
+.doc-note { padding: 16px 22px; font-size: 14px; color: var(--sub); }
+
+.sub-list { padding: 12px 22px; border-top: 1px solid var(--line); font-size: 14px; }
+.sub-list span { color: var(--sub); margin-right: .6em; }
+
+/* ---------- フッター ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 28px 0 56px; font-size: 13px; color: var(--sub); }
+.site-footer p { margin: 4px 0; }
+
+.to-top { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+/* ---------- 入口ページ ---------- */
+.year-group { margin-bottom: 40px; }
+.year-group h2 { font-size: 18px; margin: 0 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.month-list { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); list-style: none; padding: 0; margin: 0; }
+.month-list a {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.month-list a:hover { border-color: var(--accent); background: var(--accent-weak); }
+.month-list .m { font-size: 17px; font-weight: 700; }
+.month-list .c { font-size: 13px; color: var(--sub); }
+
+/* ---------- 画面が狭いとき / Google Sites の枠内 ---------- */
+@media (max-width: 720px) {
+  body { font-size: 15px; }
+  .wrap { padding: 0 16px; }
+  .site-header { padding: 28px 0 20px; margin-bottom: 28px; }
+  .site-header h1 { font-size: 23px; }
+  .toc { padding: 18px 20px; }
+  .doc-body iframe { height: 460px; }
+  .chapter-head h2 { font-size: 18px; }
+}
+
+@media print {
+  .doc-body, .toc { display: none; }
+}
