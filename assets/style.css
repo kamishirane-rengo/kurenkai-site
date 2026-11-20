@@ -134,6 +134,18 @@ summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .doc-body iframe { display: block; width: 100%; height: 680px; border: 0; }
 .doc-note { padding: 16px 22px; font-size: 14px; color: var(--sub); }
 
+/* ページ画像を縦に並べる。Google Sites の埋め込み枠の中では
+   PDF ビューアが動かないため、既定はこちらを使う。 */
+.doc-pages { background: var(--panel); padding: 14px; display: grid; gap: 14px; }
+.doc-pages img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+}
+
 .sub-list { padding: 12px 22px; border-top: 1px solid var(--line); font-size: 14px; }
 .sub-list span { color: var(--sub); margin-right: .6em; }
 
